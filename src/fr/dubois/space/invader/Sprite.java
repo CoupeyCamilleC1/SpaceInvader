@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 
 public abstract class Sprite {
 	
@@ -11,7 +12,7 @@ public abstract class Sprite {
 	protected float x;
 	protected float y;
 	protected Paint paint;
-
+	
 	public Sprite(Bitmap bitmap,float x,float y) {
 		this.bitmap = bitmap;
 		this.x = x;
