@@ -1,7 +1,6 @@
 package fr.dubois.space.invader;
 
 
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -26,24 +25,13 @@ public class SpaceInvaderView extends View {
 	private Alien alien;
 
 	//ID des drawables
-	private static final int ALIEN1 = 1;
+	/*private static final int ALIEN1 = 1;
     private static final int IC_LAUNCHER = 2;
     private static final int MISSILE = 3;
     private static final int MISSILE2 = 4;
     private static final int SHIP = 5;
-    
-    private void initSpaceInvaderView() {
-    	setFocusable(true);
-    	Resources r = this.getContext().getResources();
-    	loadImage(ALIEN1, r.getDrawable(R.drawable.alien1));
-    	loadImage(IC_LAUNCHER, r.getDrawable(R.drawable.ic_launcher));
-    	loadImage(MISSILE, r.getDrawable(R.drawable.missile));
-    	loadImage(MISSILE2, r.getDrawable(R.drawable.missile2));
-    	loadImage(SHIP, r.getDrawable(R.drawable.ship));
-    }
-    
-	int[] img;
-
+    */
+   
     
 	public SpaceInvaderView(Context context) {
 		super(context);
@@ -68,7 +56,8 @@ public class SpaceInvaderView extends View {
 		paint.setTextSize(36);
 		paint.setTextAlign(Paint.Align.CENTER);
 		text = "Texte";
-		alien= new Alien(null, 0, 0);
+		Bitmap fnu=loadImage(R.drawable.alien1);
+		this.alien= new Alien(fnu,fnu.getWidth() ,fnu.getHeight());
 	}
 
 
@@ -103,7 +92,13 @@ public class SpaceInvaderView extends View {
 		this.setMeasuredDimension(x,y);
 	}
 	
-	public Bitmap loadImage(int key, Drawable image) {
+	public Bitmap loadImage(int id) {
+		
+		Drawable image;
+		Resources r = this.getContext().getResources();
+        
+
+        image= r.getDrawable(id);
 		int height = image.getIntrinsicHeight();
 		int width = image.getIntrinsicWidth();
         
