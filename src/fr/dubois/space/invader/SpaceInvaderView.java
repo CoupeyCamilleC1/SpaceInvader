@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Typeface;
+
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -22,6 +23,7 @@ public class SpaceInvaderView extends View {
 
 	private Paint paint; // Style pour le texte	
 	private String text; // texte à afficher
+	private Alien alien;
 
 	//ID des drawables
 	private static final int ALIEN1 = 1;
@@ -66,6 +68,7 @@ public class SpaceInvaderView extends View {
 		paint.setTextSize(36);
 		paint.setTextAlign(Paint.Align.CENTER);
 		text = "Texte";
+		alien= new Alien(null, 0, 0);
 	}
 
 
@@ -78,6 +81,7 @@ public class SpaceInvaderView extends View {
 		if (text != null){
 			canvas.drawText(text, canvas.getWidth()/2,canvas.getHeight()/2, paint);
 		}
+		alien.draw(canvas);
 	}
 
 
