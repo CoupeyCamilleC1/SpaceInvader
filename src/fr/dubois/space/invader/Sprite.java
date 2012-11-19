@@ -12,14 +12,13 @@ public abstract class Sprite {
 	protected float x;
 	protected float y;
 	protected Paint paint;
-	private Alien alien;
+	
 
 	public Sprite(Bitmap bitmap,float x,float y) {
 		this.bitmap = bitmap;
 		this.x = x;
 		this.y = y;
 		paint = new Paint();
-		alien = new Alien(bitmap, x, y);
 	}
 
 	public void draw(Canvas canvas) {
