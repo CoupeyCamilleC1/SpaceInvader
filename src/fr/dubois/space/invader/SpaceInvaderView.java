@@ -14,6 +14,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 
+
 public class SpaceInvaderView extends View {
 	
 	// Dimensions souhaitées
