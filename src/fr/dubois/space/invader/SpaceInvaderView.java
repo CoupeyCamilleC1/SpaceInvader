@@ -133,7 +133,7 @@ public class SpaceInvaderView extends View {
         @Override
         public void handleMessage(Message msg) {
             SpaceInvaderView.this.update();
-            SpaceInvaderView.this.inval idate();
+            SpaceInvaderView.this.invalidate();
         }
 
         public void sleep(long delayMillis) {
