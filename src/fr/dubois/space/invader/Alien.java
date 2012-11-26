@@ -25,7 +25,7 @@ public class Alien extends Sprite{
 	public void act() {
 		// TODO Auto-generated method stub
 		
-		int etatx; //Variable d'état axe des X
+		/*int etatx; //Variable d'état axe des X
 		etatx = 1;
 		int etaty; // Variable d'état axe des Y
 		etaty = 0;
@@ -45,6 +45,7 @@ public class Alien extends Sprite{
 			}
 			compteury = 0;
 		}
-		
+		*/
+		this.x += 10;
 	}
 }
