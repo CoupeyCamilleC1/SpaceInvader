@@ -125,12 +125,6 @@ public class SpaceInvaderView extends View {
         
         image.setBounds(0, 0, width, height);
         image.draw(canvas);
-        
-        /*mTileArray[key] = bitmap;*/
-        
-
-       
-        /*resetImage(4);*/
         return bitmap;
         
     }
@@ -153,6 +147,7 @@ public class SpaceInvaderView extends View {
 	public void update() {
 		// TODO Auto-generated method stub
 		mRedrawHandler.sleep(40);
+		alien.act();
 	};
     
 }
