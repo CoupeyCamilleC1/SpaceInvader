@@ -11,6 +11,8 @@ import android.graphics.Paint.Style;
 import android.graphics.Typeface;
 
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.Message;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -25,12 +27,26 @@ public class SpaceInvaderView extends View {
 	private String text; // texte à afficher
 	private Alien alien;
 
+	
+	//private long mMoveDelay = 600;
+	
+	
 	//ID des drawables
 	/*private static final int ALIEN1 = 1;
     private static final int IC_LAUNCHER = 2;
     private static final int MISSILE = 3;
     private static final int MISSILE2 = 4;
     private static final int SHIP = 5;
+    
+    private void initSpaceInvaderView() {
+    	setFocusable(true);
+    	Resources r = this.getContext().getResources();
+    	loadImage(ALIEN1, r.getDrawable(R.drawable.alien1));
+    	loadImage(IC_LAUNCHER, r.getDrawable(R.drawable.ic_launcher));
+    	loadImage(MISSILE, r.getDrawable(R.drawable.missile));
+    	loadImage(MISSILE2, r.getDrawable(R.drawable.missile2));
+    	loadImage(SHIP, r.getDrawable(R.drawable.ship));
+    }
     */
 
     
@@ -57,8 +73,10 @@ public class SpaceInvaderView extends View {
 		paint.setTextSize(36);
 		paint.setTextAlign(Paint.Align.CENTER);
 		text = "Texte";
+		alien= new Alien(null, 0, 0);		
 		Bitmap fnu=loadImage(R.drawable.alien1);
 		this.alien= new Alien(fnu,fnu.getWidth() ,fnu.getHeight());
+		update();
 	}
 
 
@@ -108,14 +126,29 @@ public class SpaceInvaderView extends View {
         
         image.setBounds(0, 0, width, height);
         image.draw(canvas);
-        
-        /*mTileArray[key] = bitmap;*/
-        
-
-       
-        /*resetImage(4);*/
         return bitmap;
         
     }
+	private RefreshHandler mRedrawHandler = new RefreshHandler();
 
+    class RefreshHandler extends Handler {
+
+        @Override
+        public void handleMessage(Message msg) {
+            SpaceInvaderView.this.update();
+            SpaceInvaderView.this.invalidate();
+        }
+
+        public void sleep(long delayMillis) {
+        	this.removeMessages(0);
+            sendMessageDelayed(obtainMessage(0), delayMillis);
+        }
+    } 
+
+	public void update() {
+		// TODO Auto-generated method stub
+		mRedrawHandler.sleep(40);
+		alien.act();
+	};
+    
 }
