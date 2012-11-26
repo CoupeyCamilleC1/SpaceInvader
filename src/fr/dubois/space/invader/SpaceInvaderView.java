@@ -32,7 +32,7 @@ public class SpaceInvaderView extends View {
     private static final int MISSILE2 = 4;
     private static final int SHIP = 5;
     */
-   //fnu
+
     
 	public SpaceInvaderView(Context context) {
 		super(context);
