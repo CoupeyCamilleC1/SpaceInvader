@@ -16,6 +16,7 @@ import android.os.Message;
 import android.util.AttributeSet;
 import android.view.View;
 
+
 public class SpaceInvaderView extends View {
 	
 	// Dimensions souhaitées
@@ -47,7 +48,7 @@ public class SpaceInvaderView extends View {
     	loadImage(SHIP, r.getDrawable(R.drawable.ship));
     }
     */
- 
+
     
 	public SpaceInvaderView(Context context) {
 		super(context);
