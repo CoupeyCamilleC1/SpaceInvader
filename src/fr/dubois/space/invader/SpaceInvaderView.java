@@ -26,6 +26,7 @@ public class SpaceInvaderView extends View {
 	private Paint paint; // Style pour le texte	
 	private String text; // texte à afficher
 	private Alien alien;
+	private Ship ship; 
 
 	
 	//private long mMoveDelay = 600;
@@ -76,6 +77,9 @@ public class SpaceInvaderView extends View {
 		alien= new Alien(null, 0, 0);		
 		Bitmap fnu=loadImage(R.drawable.alien1);
 		this.alien= new Alien(fnu,fnu.getWidth() ,fnu.getHeight());
+		ship= new Ship(null, 0, 0);
+		Bitmap vaisseau= loadImage(R.drawable.ship);
+		this.ship= new Ship (vaisseau, vaisseau.getWidth(), vaisseau.getHeight());
 		update();
 	}
 
@@ -89,6 +93,7 @@ public class SpaceInvaderView extends View {
 			canvas.drawText(text, canvas.getWidth()/2,canvas.getHeight()/2, paint);
 		}
 		alien.draw(canvas);
+		ship.draw(canvas);
 	}
 
 
@@ -149,6 +154,7 @@ public class SpaceInvaderView extends View {
 		// TODO Auto-generated method stub
 		mRedrawHandler.sleep(40);
 		alien.act();
+		ship.act();
 	};
     
 }
